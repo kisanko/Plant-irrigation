@@ -1,7 +1,15 @@
-import aiedge_tflite_runtime.interpreter as tflite
+import streamlit as st
+import numpy as np
+import onnxruntime as ort
 
-# Then load your model just like normal:
-interpreter = tflite.Interpreter(model_path="plant_model_small.tflite")
+# 1. Load your models using ONNX Runtime (it natively supports .tflite files!)
+plant_session = ort.InferenceSession("plant_model_small.tflite")
+soil_session = ort.InferenceSession("soil_model.tflite")
+
+# 2. How to run inference in your code later on:
+# Instead of interpreter.allocate_tensors(), you just pass your sensor data array like this:
+# input_name = plant_session.get_inputs()[0].name
+# output = plant_session.run(None, {input_name: your_input_data_numpy_array})
 import time
 # ==========================================
 # MOCK ARDUINO APPLAB SDK (Add this to test locally)
