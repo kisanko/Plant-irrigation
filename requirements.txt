@@ -1,6 +1,3 @@
 streamlit
-tensorflow
+tensorflow-cpu
 numpy
-pandas
-pillow
-calibrate_senso
