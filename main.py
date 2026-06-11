@@ -1,3 +1,7 @@
+import aiedge_tflite_runtime.interpreter as tflite
+
+# Then load your model just like normal:
+interpreter = tflite.Interpreter(model_path="plant_model_small.tflite")
 import time
 # ==========================================
 # MOCK ARDUINO APPLAB SDK (Add this to test locally)
